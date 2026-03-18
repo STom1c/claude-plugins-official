@@ -1038,6 +1038,17 @@
         "sha": "eeef353eead2e3dc5f33f64dbaae54e1309e0d45"
       },
       "homepage": "https://github.com/intercom/claude-plugin-external"
+    },
+    {
+      "name": "zoominfo",
+      "description": "Search companies and contacts, enrich leads, find lookalikes, and get AI-ranked contact recommendations. Pre-built skills chain multiple ZoomInfo tools into complete B2B sales workflows.",
+      "category": "productivity",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/Zoominfo/zoominfo-mcp-plugin.git",
+        "sha": "0705316ef8a2d0c64f81e50d4612ccc6a74edf03"
+      },
+      "homepage": "https://zoominfo.com"
     }
   ]
 }
