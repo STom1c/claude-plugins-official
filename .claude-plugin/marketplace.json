@@ -652,6 +652,13 @@
       "homepage": "https://www.legalzoom.com/"
     },
     {
+      "name": "line-channel",
+      "description": "LINE channel for Claude Code — bidirectional messaging bridge via LINE Messaging API with built-in access control.",
+      "category": "messaging",
+      "source": "./external_plugins/line-channel",
+      "homepage": "https://github.com/STom1c/claude-plugins-official/tree/main/external_plugins/line-channel"
+    },
+    {
       "name": "linear",
       "description": "Linear issue tracking integration. Create issues, manage projects, update statuses, search across workspaces, and streamline your software development workflow with Linear's modern issue tracker.",
       "category": "productivity",
