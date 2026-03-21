@@ -1,0 +1,11 @@
+{
+  "name": "line-channel",
+  "description": "LINE channel for Claude Code — messaging bridge via LINE Messaging API. Polls a relay server for inbound messages and replies via LINE push API.",
+  "version": "0.0.1",
+  "keywords": [
+    "line",
+    "messaging",
+    "channel",
+    "mcp"
+  ]
+}
