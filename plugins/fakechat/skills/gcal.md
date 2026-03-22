@@ -1,54 +1,44 @@
 # Google Calendar — LINE Channel Integration
 
-When a LINE message asks about schedule or calendar events, query Google Calendar
-and reply back to the LINE user.
+When a LINE message asks about schedule, calendar, a course name, or event time — ALWAYS query Google Calendar first.
 
 ---
 
-## Trigger phrases (examples)
-- "Check the next week schedule"
-- "What's on my calendar today"
-- "Show this week's events"
-- "下週行程"、"今天行事曆"、"本週行程"
-
----
-
-## How to respond
-
-### Step 1 — Run gcal_query.py
+## Mode selection
 
 ```bash
 cd /Users/stanley_tseng/py_projects && source .venv/bin/activate && python gcal_query.py <mode>
 ```
 
-Mode values:
-| User intent | mode arg |
+| User intent | mode |
 |---|---|
 | today / 今天 | `today` |
-| this week / 本週 | `this` (or no arg) |
+| this week / 本週 / just "calendar" | `this` (default) |
 | next week / 下週 | `next` |
-
-### Step 2 — Send output back via LINE
-
-Use the `reply` tool with:
-- `to`: the LINE user ID from the inbound message (format: `Uxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`)
-- `text`: the stdout output from gcal_query.py (trim leading/trailing whitespace)
+| course name / event name / "when is X" / "X 什麼時候" | `search <keyword>` |
 
 ---
 
-## Example
+## Examples
 
-Inbound: `U61e3fa3da5155ad2612f9dbd012c74ee: Check the next week schedule`
+| LINE message | Command |
+|---|---|
+| 行事曆 | `python gcal_query.py this` |
+| 下週行程 | `python gcal_query.py next` |
+| 今天有什麼? | `python gcal_query.py today` |
+| Python課什麼時候? | `python gcal_query.py search Python課` |
+| AI workshop | `python gcal_query.py search AI workshop` |
+| 健身課 | `python gcal_query.py search 健身課` |
 
-```bash
-cd /Users/stanley_tseng/py_projects && source .venv/bin/activate && python gcal_query.py next
-```
+---
 
-Reply to `U61e3fa3da5155ad2612f9dbd012c74ee` with the output.
+## Reply
+
+Send the script stdout directly to the user via the reply tool (trim whitespace). Output is already formatted with emoji.
 
 ---
 
 ## Notes
-- Token is cached at `/Users/stanley_tseng/py_projects/gcal_token.json` — no OAuth prompt needed.
-- If token is expired, refresh happens automatically (requires network access).
-- Output is already formatted with emoji and date/time — send as-is.
+- Token cached at `/Users/stanley_tseng/py_projects/gcal_token.json` — no OAuth prompt.
+- Search covers the next 60 days across all calendars.
+- Never claim you lack calendar access.
