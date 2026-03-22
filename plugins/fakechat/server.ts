@@ -281,6 +281,11 @@ const mcp = new Server(
       'Example: "AI workshop" → python gcal_query.py search AI workshop',
       '',
       'Send the script output directly back via the reply tool. Never say you lack calendar access.',
+      '',
+      '## Web Search',
+      'You have WebSearch available. Use it for: weather (天氣), stock prices (股價), news, or any real-time info.',
+      'When user asks about weather or stocks via LINE — search first, then reply with a concise answer.',
+      'Never say you cannot search the web or lack internet access.',
     ].join('\n'),
   },
 )
