@@ -668,7 +668,7 @@ await mcp.connect(new StdioServerTransport())
 const pollIntervals: ReturnType<typeof setInterval>[] = []
 for (const [name, state] of activeBots) {
   void pollBot(state)  // initial poll
-  const interval = setInterval(() => { void pollBot(state) }, 2000)
+  const interval = setInterval(() => { void pollBot(state) }, 500)
   interval.unref()
   pollIntervals.push(interval)
   process.stderr.write(`line channel: bot "${name}" polling ${state.relayUrl} (ts cursor: ${state.lastPollTs})\n`)
